@@ -19,7 +19,7 @@ and the functionality should be flexible.
 
 ## Notes & Requirements
 
-* Try to spend **no more than 4 hours** on this task. We will discuss possible improvements during the follow up meeting.
+* You can spend as much time as you want.
 * You may refactor not only the application code, but the tests too. Keep in mind that test code is still code that
 needs to be maintained.
 * Use git to track your changes. **Fork or clone this repository** and commit often.
