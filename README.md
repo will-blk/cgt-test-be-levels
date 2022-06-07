@@ -19,11 +19,10 @@ and the functionality should be flexible.
 
 ## Notes & Requirements
 
-* Try to spend **no more than 4 hours** on this task. This will constrain you not to spend too much time on trivial
-details (sometimes you have to make compromises in order to deliver fast).
-* You may refactor not only the code in the models, but in tests too. Keep in mind that test code is still code that
+* Try to spend **no more than 4 hours** on this task. We will discuss possible improvements during the follow up meeting.
+* You may refactor not only the application code, but the tests too. Keep in mind that test code is still code that
 needs to be maintained.
-* Use git to track your changes. **Fork this repository** and commit often.
-* When finished, notify CGTrader providing the link to your forked repository.
+* Use git to track your changes. **Fork or clone this repository** and commit often.
+* When finished, send us the link or the zip of the project via e-mail.
 
 Good luck!
