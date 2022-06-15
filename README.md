@@ -15,7 +15,7 @@ and the functionality should be flexible.
 
 1. Make sure test suite runs through all of the tests successfully. Hint: it won't at first.
 2. Refactor implementation code and tests where you see fit. You have as much freedom here as you wish.
-3. Implement new functionality. More details below.
+3. Implement new functionality.
 
 ## Notes & Requirements
 
