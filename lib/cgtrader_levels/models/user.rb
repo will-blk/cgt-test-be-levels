@@ -2,9 +2,7 @@ class CgtraderLevels::User < ActiveRecord::Base
   attr_reader :level
 
   after_initialize do
-    self.reputation = 0
-
-    matching_level = CgtraderLevels::Level.where(experience: reputation).first
+    matching_level = CgtraderLevels::Level.find_by(experience: reputation)
 
     if matching_level
       self.level_id = matching_level.id
@@ -17,7 +15,7 @@ class CgtraderLevels::User < ActiveRecord::Base
   private
 
   def set_new_level
-    matching_level = CgtraderLevels::Level.where(experience: reputation).first
+    matching_level = CgtraderLevels::Level.where('experience <= ?', reputation).order(experience: :desc).first
 
     if matching_level
       self.level_id = matching_level.id
