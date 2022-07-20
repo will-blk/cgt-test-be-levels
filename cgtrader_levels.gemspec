@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CgtraderLevels::VERSION
   spec.authors       = ["Vilius Luneckas"]
   spec.email         = ["vilius.luneckas@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = "CGTrader test ground"
+  spec.description   = "The goal of this gem is to test the ability to test, refact and implement new functionality on a given system."
   spec.homepage      = ""
   spec.license       = "MIT"
 
