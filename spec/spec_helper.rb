@@ -7,6 +7,7 @@ require 'support/database_cleaner'
 require 'simplecov'
 SimpleCov.start
 
+require 'byebug'
 require 'cgtrader_levels'
 
 RSpec.configure { |config| }
