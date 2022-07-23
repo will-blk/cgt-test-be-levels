@@ -14,6 +14,11 @@ ActiveRecord::Base.connection.create_table :users do |table|
   table.references :level
 end
 
+ActiveRecord::Base.connection.create_table :bonuses do |table|
+  table.string :field
+  table.integer :modifier
+end
+
 ActiveRecord::Base.connection.create_table :levels do |table|
   table.string :title
   table.integer :experience
