@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
-  factory :level, class: CgtraderLevels::Level do
-    title { 'First Level'}
+  factory :level, class: 'CgtraderLevels::Level' do
+    title { 'First Level' }
     experience { 0 }
 
-    trait :level_2 do
+    trait :level2 do
       title { 'Second Level' }
       experience { 10 }
     end

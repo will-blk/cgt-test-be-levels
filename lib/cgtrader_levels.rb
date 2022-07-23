@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cgtrader_levels/version'
 require 'cgtrader_levels/config/initializers/inflections'
 

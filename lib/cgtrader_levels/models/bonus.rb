@@ -1,7 +1,11 @@
-class CgtraderLevels::Bonus < ActiveRecord::Base
-  belongs_to :level
+# frozen_string_literal: true
 
-  def apply(levelable)
-    levelable.send("#{field}=", levelable.send(field) + modifier)
+module CgtraderLevels
+  class Bonus < ActiveRecord::Base
+    belongs_to :level
+
+    def apply(levelable)
+      levelable.send("#{field}=", levelable.send(field) + modifier)
+    end
   end
 end
