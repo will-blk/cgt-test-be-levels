@@ -9,5 +9,4 @@ SimpleCov.start
 
 require 'byebug'
 require 'cgtrader_levels'
-
-RSpec.configure { |config| }
+require 'support/factory_bot'
