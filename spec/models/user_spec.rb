@@ -40,8 +40,9 @@ describe CgtraderLevels::User do
 
   describe 'level up bonuses & privileges' do
     it 'gives 7 coins to user' do
-      pending
-
+      @level_1 = CgtraderLevels::Level.create!(experience: 0, title: 'First level')
+      @level_2 = CgtraderLevels::Level.create!(experience: 10, title: 'Second level')
+      @bonus = CgtraderLevels::Bonus.create!(field: 'coins', modifier: 7, level: @level_2)
       @user = CgtraderLevels::User.create!(coins: 1)
 
       expect {
