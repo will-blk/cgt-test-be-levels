@@ -6,8 +6,8 @@ require 'cgtrader_levels/version'
 Gem::Specification.new do |spec|
   spec.name          = "cgtrader_levels"
   spec.version       = CgtraderLevels::VERSION
-  spec.authors       = ["Vilius Luneckas"]
-  spec.email         = ["vilius.luneckas@gmail.com"]
+  spec.authors       = ["Vilius Luneckas", "Willian Blanck"]
+  spec.email         = ["vilius.luneckas@gmail.com", "will-blk@hotmail.com"]
   spec.summary       = "CGTrader test ground"
   spec.description   = "The goal of this gem is to test the ability to test, refact and implement new functionality on a given system."
   spec.homepage      = ""
