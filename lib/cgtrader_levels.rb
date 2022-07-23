@@ -1,4 +1,5 @@
 require 'cgtrader_levels/version'
+require 'cgtrader_levels/config/initializers/inflections'
 
 module CgtraderLevels
   autoload :User, 'cgtrader_levels/models/user'

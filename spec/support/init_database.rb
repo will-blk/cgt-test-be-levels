@@ -17,6 +17,7 @@ end
 ActiveRecord::Base.connection.create_table :bonuses do |table|
   table.string :field
   table.integer :modifier
+  table.references :level
 end
 
 ActiveRecord::Base.connection.create_table :levels do |table|
