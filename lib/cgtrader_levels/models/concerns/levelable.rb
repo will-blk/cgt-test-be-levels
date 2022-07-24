@@ -24,7 +24,7 @@ module CgtraderLevels
     end
 
     def check_next_level
-      next_level = CgtraderLevels::Level.find_by(level: level)
+      next_level = CgtraderLevels::Level.find_by(level:)
       self.level = next_level if reputation >= next_level.experience
     end
   end

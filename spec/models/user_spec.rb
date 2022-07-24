@@ -49,7 +49,7 @@ describe CgtraderLevels::User do
   describe 'level up bonuses & privileges' do
     let!(:level1) { create :level }
     let!(:level2) { create :level, :level2, level: level1 }
-    
+
     let(:user) { create :user, level: level1 }
 
     context 'when level up twice' do
