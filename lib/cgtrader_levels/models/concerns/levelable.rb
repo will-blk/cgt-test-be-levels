@@ -5,9 +5,9 @@ module CgtraderLevels
     extend ActiveSupport::Concern
 
     included do
-      after_initialize :set_level, unless: :persisted?
+      after_initialize :set_initial_level, unless: :persisted?
 
-      before_update :set_level, if: :reputation_changed?
+      before_update :check_next_level, if: :reputation_changed?
       before_update :apply_new_level_bonus, if: :level_changed?
     end
 
@@ -19,8 +19,13 @@ module CgtraderLevels
       end
     end
 
-    def set_level
-      self.level = CgtraderLevels::Level.where('experience <= ?', reputation).order(experience: :desc).first
+    def set_initial_level
+      self.level = CgtraderLevels::Level.find_by(experience: 0)
+    end
+
+    def check_next_level
+      next_level = CgtraderLevels::Level.find_by(level: level)
+      self.level = next_level if reputation >= next_level.experience
     end
   end
 end
