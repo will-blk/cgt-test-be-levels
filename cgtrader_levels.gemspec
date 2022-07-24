@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'CGTrader test ground'
   spec.description   = 'The goal of this gem is to test the ability to test,
                         refact and implement new functionality on a given system.'
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/CGTrader/cgt-test-be-levels'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
