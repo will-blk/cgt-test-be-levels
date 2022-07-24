@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe CgtraderLevels::User do
-  describe 'new user' do
+  describe '#new' do
     let(:user) { described_class.new }
 
     it 'has 0 reputation points' do
@@ -19,7 +19,7 @@ describe CgtraderLevels::User do
 
   describe 'level up' do
     let!(:level1) { create :level }
-    let!(:level2) { create :level, :level2 }
+    let!(:level2) { create :level, :level2, level: level1 }
     let(:user) { create :user, level: level1 }
 
     context 'when reputation is exactly the required for next level' do
@@ -32,23 +32,28 @@ describe CgtraderLevels::User do
 
     context 'when reputation is higher than required for one level' do
       it "level ups from 'First level' to 'Second level'" do
-        create :level, experience: 13, title: 'Third level'
+        create :level, experience: 13, title: 'Third level', level: level2
 
         expect do
           user.update_attribute(:reputation, 11)
         end.to change { user.reload.level }.from(level1).to(level2)
       end
     end
+
+    context 'when reputation is higher than required for two levels' do
+      xit 'does not skip level' do
+      end
+    end
   end
 
   describe 'level up bonuses & privileges' do
     let!(:level1) { create :level }
-    let!(:level2) { create :level, :level2 }
-
+    let!(:level2) { create :level, :level2, level: level1 }
+    
     let(:user) { create :user, level: level1 }
 
     context 'when level up twice' do
-      let!(:level3) { create :level, :level3 }
+      let!(:level3) { create :level, :level3, level: level2 }
 
       it 'stacks bonuses' do
         create :bonus, field: 'coins', modifier: 3, level: level2
