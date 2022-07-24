@@ -9,25 +9,31 @@ module CgtraderLevels
         included do
           after_initialize :set_initial_level, unless: :persisted?
 
-          before_update :check_next_level, if: :reputation_changed?
-          before_update :apply_new_level_bonus, if: :level_changed?
+          before_update :level_up, if: :level_up?
         end
 
         private
-
-        def apply_new_level_bonus
-          level.bonuses.each do |bonus|
-            bonus.apply(self)
-          end
-        end
 
         def set_initial_level
           self.level = Level.find_by(experience: 0)
         end
 
-        def check_next_level
-          next_level = Level.find_by(level:)
-          self.level = next_level if reputation >= next_level.experience
+        def level_up
+          self.level = next_level
+
+          level.bonuses.each do |bonus|
+            bonus.apply(self)
+          end
+        end
+
+        def level_up?
+          return false unless next_level
+
+          reputation >= next_level.experience
+        end
+
+        def next_level
+          Level.where('experience <= ?', reputation).find_by(level:)
         end
       end
     end
