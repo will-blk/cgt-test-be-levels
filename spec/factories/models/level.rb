@@ -9,5 +9,10 @@ FactoryBot.define do
       title { 'Second Level' }
       experience { 10 }
     end
+
+    trait :level3 do
+      title { 'Third Level' }
+      experience { 30 }
+    end
   end
 end

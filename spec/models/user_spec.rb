@@ -47,6 +47,20 @@ describe CgtraderLevels::User do
 
     let(:user) { create :user, level: level1 }
 
+    context 'when level up twice' do
+      let!(:level3) { create :level, :level3 }
+
+      it 'stacks bonuses' do
+        create :bonus, field: 'coins', modifier: 3, level: level2
+        create :bonus, field: 'coins', modifier: 5, level: level3
+
+        expect do
+          user.update_attribute(:reputation, 10)
+          user.update_attribute(:reputation, 30)
+        end.to change { user.reload.coins }.from(0).to(8)
+      end
+    end
+
     it 'gives 7 coins to user' do
       create :bonus, field: 'coins', modifier: 7, level: level2
 
