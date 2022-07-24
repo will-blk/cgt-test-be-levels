@@ -8,6 +8,7 @@ module CgtraderLevels
 
     belongs_to :level
 
+    validates :username, uniqueness: true
     validates :coins, :tax, :reputation, :username, presence: true
     validates :coins, :tax, :reputation, comparison: { greater_than_or_equal_to: 0 }
   end
