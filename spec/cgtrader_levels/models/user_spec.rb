@@ -2,17 +2,16 @@
 
 require 'spec_helper'
 
-describe CgtraderLevels::User do
+describe CgtraderLevels::Models::User do
   describe '#new' do
     let(:user) { described_class.new }
+    let!(:level) { create :level }
 
     it 'has 0 reputation points' do
       expect(user.reputation).to eq(0)
     end
 
     it "has assigned 'First level'" do
-      level = CgtraderLevels::Level.create!(experience: 0, title: 'First level')
-
       expect(user.level).to eq(level)
     end
   end
@@ -42,6 +41,7 @@ describe CgtraderLevels::User do
 
     context 'when reputation is higher than required for two levels' do
       xit 'does not skip level' do
+        pending
       end
     end
   end
@@ -55,10 +55,12 @@ describe CgtraderLevels::User do
     context 'when level up twice' do
       let!(:level3) { create :level, :level3, level: level2 }
 
-      it 'stacks bonuses' do
+      before do
         create :bonus, field: 'coins', modifier: 3, level: level2
         create :bonus, field: 'coins', modifier: 5, level: level3
+      end
 
+      it 'stacks bonuses' do
         expect do
           user.update_attribute(:reputation, 10)
           user.update_attribute(:reputation, 30)
