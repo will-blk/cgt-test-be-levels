@@ -6,7 +6,7 @@ module CgtraderLevels
   class User < ActiveRecord::Base
     include CgtraderLevels::Levelable
 
-    belongs_to :level
+    belongs_to :level, optional: false
 
     validates :username, uniqueness: true
     validates :coins, :tax, :reputation, :username, presence: true

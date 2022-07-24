@@ -2,7 +2,7 @@
 
 module CgtraderLevels
   class Bonus < ActiveRecord::Base
-    belongs_to :level
+    belongs_to :level, optional: false
 
     FIELDS = %w[
       coins
