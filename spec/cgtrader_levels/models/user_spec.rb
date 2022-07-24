@@ -40,8 +40,19 @@ describe CgtraderLevels::Models::User do
     end
 
     context 'when reputation is higher than required for two levels' do
-      xit 'does not skip level' do
-        pending
+      let!(:level3) { create :level, experience: 13, title: 'Third level', level: level2 }
+
+      it 'does not skip level' do
+        expect do
+          user.update_attribute(:reputation, 15)
+        end.to change { user.reload.level }.from(level1).to(level2)
+      end
+
+      it 'reaches third level' do
+        expect do
+          user.update_attribute(:reputation, 15)
+          user.update_attribute(:reputation, 15)
+        end.to change { user.reload.level }.from(level1).to(level3)
       end
     end
   end
